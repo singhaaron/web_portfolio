@@ -1,11 +1,10 @@
-# portfolio-website
+# web_portfolio
 
-A portfolio website without additional librarys | frameworks.
+A portfolio website w/o additional librarys | frameworks.
 
 ## Getting Started
 
-Host index.html with http-server
-Hosted: https://singhaaron.github.io/Portfolio-Website/index.html
+Deployed: https://singhaaron.github.io/web_portfolio/
 
 ## Built With
 
@@ -15,14 +14,4 @@ Hosted: https://singhaaron.github.io/Portfolio-Website/index.html
 
 ## Authors
 
-- **Aaron Singh** - _Initial work_ :D
-
-## License
-
-This project is licensed under the MIT License
-
-## Acknowledgments
-
-Youtube Channels
-
-- [TraversyMedia Tutorials](https://www.youtube.com/user/TechGuyWeb)
+- **Aaron Singh**
