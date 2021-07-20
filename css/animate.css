@@ -1,0 +1,91 @@
+.fade-out {
+  opacity: 0.7;
+}
+.fade-in {
+  opacity: 1;
+}
+.slide-content-left {
+  visibility: visible;
+  position: relative;
+  animation-name: leftSlide;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+.slide-content-right {
+  visibility: visible;
+  position: relative;
+  animation-name: rightSlide;
+  animation-duration: 3s;
+  animation-fill-mode: backwards;
+}
+.slide-content-target {
+  visibility: visible;
+  position: relative;
+  animation-name: leftSlide;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
+}
+.bounce-arrow {
+  visibility: relative;
+  position: relative;
+  animation-name: bounceArrow;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+.hide {
+  visibility: hidden;
+}
+.unhide {
+  visibility: visible;
+}
+
+@keyframes leftSlide {
+  0% {
+    right: 200%;
+  }
+  60% {
+    right: -8%;
+  }
+  100% {
+    right: 0%;
+  }
+}
+@keyframes rightSlide {
+  0% {
+    left: 200%;
+  }
+  60% {
+    left: -8%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes bounceArrow {
+  0% {
+    bottom: -200%;
+  }
+
+  50% {
+    bottom: -50%;
+  }
+
+  75% {
+    bottom: -60%;
+  }
+
+  100% {
+    bottom: -50%;
+  }
+}
+@keyframes bottomSlide {
+  0% {
+    bottom: 200%;
+  }
+  60% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}

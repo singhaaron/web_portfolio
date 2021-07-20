@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio-website</title>
+    <!-- External CDNs: Icons & Pretty Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- Local Style Imports -->
+    <style>
+.slide-content-left {
+  visibility: visible;
+  position: relative;
+  animation-name: leftSlide;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+.slide-content-right {
+  visibility: visible;
+  position: relative;
+  animation-name: rightSlide;
+  animation-duration: 3s;
+  animation-fill-mode: backwards;
+}
+.slide-content-target {
+  visibility: visible;
+  position: relative;
+  animation-name: leftSlide;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
+}
+.bounce-arrow {
+  visibility: relative;
+  position: relative;
+  animation-name: bounceArrow;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+.hide {
+  visibility: hidden;
+}
+.unhide {
+  visibility: visible;
+}
+
+@keyframes leftSlide {
+  0% {
+    right: 200%;
+  }
+  60% {
+    right: -8%;
+  }
+  100% {
+    right: 0%;
+  }
+}
+@keyframes rightSlide {
+  0% {
+    left: 200%;
+  }
+  60% {
+    left: -8%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes bounceArrow {
+  0% {
+    bottom: -200%;
+  }
+
+  50% {
+    bottom: -50%;
+  }
+
+  75% {
+    bottom: -60%;
+  }
+
+  100% {
+    bottom: -50%;
+  }
+}
+@keyframes bottomSlide {
+  0% {
+    bottom: 200%;
+  }
+  60% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}
+/* All Properties */
+* {
+  font-family: "Quicksand", sans-serif;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+  word-spacing: 3px;
+  font-weight: 900 !important;
+}
+/* CSS Grid Landing Page */
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 0.1fr;
+
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #414141 0%, #000000 74%);
+}
+section {
+  background-color: white;
+  color: black;
+}
+section div {
+  padding: 10px;
+  margin: 25px;
+  border-collapse: collapse;
+}
+section h1 {
+  font-size: 35px;
+}
+.trip-grid {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr;
+}
+.vertical-view {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.box1 {
+  transition: opacity 0.6s ease-in;
+}
+.box2 {
+  transition: opacity 0.6s ease-in;
+  color: white;
+  display: grid;
+  grid-template-rows: 0.3fr 1fr;
+  text-align: center;
+}
+
+.box3 {
+  transition: opacity 0.6s ease-in;
+}
+/* Navigation Links */
+.box4 {
+  transition: opacity 0.6s ease-in;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  grid-column: 1/4;
+}
+.box4 ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+.box4 li {
+  display: inline-block;
+}
+.box4 li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 50px;
+  text-decoration: none;
+}
+/* Progress Scroll Bar */
+div.progress-container {
+  position: fixed;
+  width: 100%;
+  height: 5px;
+  background: grey;
+}
+div.progress-bar {
+  height: 8px;
+  background: white;
+  width: 0%;
+}
+/* Transparent Login Window */
+div.login-window {
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 15%;
+  height: 500px;
+  color: black;
+}
+div.trans-window {
+  font-size: 20px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 10%;
+}
+/* Tabular Data */
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 2px solid black;
+}
+
+td {
+  border-right: 2px solid black;
+  padding: 5px;
+}
+div.scroll {
+  max-height: 200px;
+  overflow: scroll;
+}
+
+/* SVG-Animation */
+svg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+#container div {
+  position: absolute;
+  top: 3.5%;
+  left: 44%;
+}
+/* Stacked SVG */
+#floated-imgs img {
+  display: block;
+}
+
+#re-img-disappear {
+  margin-top: 15%;
+}
+
+.hide {
+  visibility: hidden;
+}
+.unhide {
+  visibility: visible;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+@media (max-width: 1000px) {
+  /* Side Arrows */
+  .box1 {
+    display: none;
+  }
+  .box3 {
+    display: none;
+  }
+  #re-img-disappear {
+    margin-top: 0%;
+  }
+}
+@media (max-width: 1400px) {
+  #floated-imgs {
+    display: none;
+  }
+  #re-img-disappear {
+    margin-top: 0%;
+  }
+  /* Transparent Login Window */
+  div.login-window {
+    border-radius: 35px;
+    background: rgba(255, 255, 255, 0.7);
+    height: 500px;
+    width: 450px;
+    color: black;
+  }
+  div.trans-window {
+    font-size: 20px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+    </style>
+
+
+  </head>
+  <body>
+    <!-- Scroll Bar  -->
+    <div class="progress-container">
+      <div class="progress-bar" id="scroll-bar"></div>
+    </div>
+    <!--Landing CSS Grid -->
+    <main>
+      <!-- Box 1: Left Arrows -->
+      <div id="box-one-scroll-arrow" class="bounce-arrow fade fade-out box1">
+        <img
+          src="./media/left-arrow.svg"
+          alt="tripple Arrow"
+          width="100"
+          height="100"
+          style="margin-left: 20%"
+        />
+        <br />
+        <img
+          src="./media/left-arrow.svg"
+          alt="tripple Arrow"
+          width="100"
+          height="100"
+          style="margin-left: 20%"
+        />
+      </div>
+      <!-- Box 2: Symbol Lock & Date | Login Window  -->
+      <div class="slide-content-left fade fade-out box2">
+        <div>
+          <!-- Row 1: Symbol | Lock | Date-->
+          <div id="container">
+            <div id="floated-imgs">
+              <img
+                id="top-lock"
+                src="media/lock-top.svg"
+                alt="lock-symbol-top"
+                height="40"
+                width="100"
+              />
+              <img
+                src="media/lock-bottom.svg"
+                alt="lock-symbol-top"
+                height="40"
+                width="100"
+              />
+            </div>
+          </div>
+          <div id="re-img-disappear">
+            <h1 id="time">Time</h1>
+            <h2 id="example">Date</h2>
+          </div>
+        </div>
+        <!-- Row 2: | Login Window | Dates -->
+        <div>
+          <div class="fade fade-out login-window">
+            <h1>aaron singh</h1>
+            <br /><br /><br />
+            <img
+              src="./media/aaron_hand_sketch_pic.jpg"
+              width="200"
+              height="275"
+              alt="pic of me"
+              style="
+                border: 2px solid black;
+                border-radius: 90%;
+                -webkit-filter: grayscale(100%);
+              "
+            />
+            <br /><br /><br />
+            <label for="password"
+              ><h2 style="display: inline">Password:</h2></label
+            >
+            <br />
+            <input
+              style="height: 30px; width: 180px"
+              type="text"
+              value="scroll down to unlock!"
+              id="password"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Box 3:Right Arrows -->
+      <div id="box-three-scroll-arrow" class="bounce-arrow fade fade-out box3">
+        <img
+          src="./media/arrow-right.svg"
+          alt="Tripple Arrow"
+          width="100"
+          height="100"
+          style="margin-left: 20%"
+        />
+        <br />
+        <img
+          src="./media/arrow-right.svg"
+          alt="Tripple Arrow"
+          width="100"
+          height="100"
+          style="margin-left: 20%"
+        />
+      </div>
+      <!-- Box 4: Navigation Links -->
+      <div class="slide-content-left fade fade-out box4">
+        <ul>
+          <li><a href="#classes">about</a></li>
+          <li><a href="#classes">projects</a></li>
+          <li><a href="#classes">courses</a></li>
+        </ul>
+        <hr />
+      </div>
+    </main>
+    <hr />
+    <!-- Languages | About me  -->
+    <section id="intro-section" class="goose fade fade-out trip-grid">
+      <div class="vertical-view fade fade-out">
+      <!-- About -->
+      <div class="goose fade fade-out">
+        <h1>about me</h1>
+        <a target="_blank"  href="https://www.youtube.com/channel/UCOia_ZLIXVQ5-a6m-E6H26w">  <i class="fab fa-youtube fa-2x"></i></a>
+        <a href="https://github.com/singhaaron" target="_blank"  > <i class="fab fa-github fa-2x"></i>  </a>
+        <a href="https://www.linkedin.com/feed/" target="_blank">      <i class="fab fa-linkedin fa-2x"></i></i>  </a>
+        <p>
+          tryna be some kind of developer ... tensorflow looks fun rn though
+        </p>
+      </div>
+      <div class="goose fade fade-out">
+        <h1>skills</h1>
+        <ul>
+          <li><b>Dev Ops</b> Aws, Google Cloud</li>
+          <li><b>Backend</b> Python, Java</li>
+          <li><b>Frontend</b> HTML5, CSS3, JavaScript </li>
+          <li><b>Frontend Frameworks</b> React</li>
+          <li><b>IDE</b> Jupyter, PyCharm, InteliJ, VSCode</li>
+        </ul>
+
+      </div>
+    </section>
+    <!-- Courses | Projects -->
+    <section id="classes" class="goose fade fade-out">
+      <!-- Projects -->
+      <div class="fade fade-out">
+        <i class="fas fa-flask fa-2x"></i>
+        <h1 style="display: inline">projects</h1>
+        <div>
+          <table>
+            <tr>
+              <th><h3>date</h3></th>
+              <th><h3>name</h3></th>
+              <th><h3>description</h3></th>
+              <th><h3>languages</h3></th>
+            </tr>
+            <tr>
+              <td>February 2019 - March 2019</td>
+              <td>Double Memory Game</td>
+              <td>Mimics a modified version of the card game known as Concentration. Player(s) memorize two face up cards out of a selection of 52 until completion or forfeit</td>
+              <td>C++</td>
+            </tr>
+            <tr>
+              <td>January 2020 - April 2020</td>
+              <td>Raspberry Pi Vehicle</td>
+              <td>
+                Navigate a minimally assembled vehicle through an obstacle course with a raspberry pi running C code.
+                <li>Main function simulates two processes, hardware motor functions and sensor functions,concurrently with multithreading w/ C standard library.</li>
+                <li>Both threads manage and share dynamically allocated heap memory, such as vehicle direction, with proper thread synchronization to avoid race conditions.</li>
+              </td>
+              <td>C</td>
+            </tr>
+            <tr>
+              <td>January 2021 - April 2021</td>
+              <td>Node Hatchio</td>
+              <td>
+                Backend and database manager for building a web application that replicates Linkedin utilizing the MERN(MySql, Express, React, Node) stack deployed on a AWS EC2 instance
+                <li>Designed the physical, logical and view schema with emphasis on scalability and reliability.</li>
+                <li>Managed the backend routes and intermediary layer to fetch and deliver data from the database.</li>
+              </td>
+              <td>JavaScript</td>
+            </tr>
+            <tr>
+              <td>June 2021 - PRESENT</td>
+              <td>Neural Tradeazy</td>
+              <td>
+                <li>Built and trained models (Long-Term Short Term Neural Networks, other regression models)  with trading history exported from mainstream brokers like TD Ameritrade, Webull, Robinhood, etc</li>
+                <li>Developed a web interface for other users to use trained models with their own personal data to provide personal insights.</li>
+              </td>
+              <td>Python</td>
+            </tr>
+          </table>
+        </div>
+        <br />
+      </div>
+      <!-- Courses -->
+      <div class="goose fade fade-out">
+        <i class="fas fa-graduation-cap fa-2x"></i>
+        <h1 style="display: inline">courses</h1>
+        <!-- Classes -->
+        <div class="table-data">
+          <!-- Table -->
+          <table>
+            <tr>
+              <th><h3>CS Classes</h3></th>
+              <th><h3>Name</h3></th>
+              <th><h3>Description</h3></th>
+            </tr>
+            <tr>
+              <td>CSC 615</td>
+              <td>Embedded Systems</td>
+              <td>
+                Applying physical computing principles with language C on
+                Raspberry Pi with only a shell enviornment to navigate an
+                minimally assembled vehicle around an obstacle course.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 340</td>
+              <td>Programing Methodology</td>
+              <td>
+                Advanced data structures and algorithms in C++ and an emphasis
+                on design and implementation, practical applications, and
+                algorithms for sorting, searching, and graphs.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 415</td>
+              <td>Operating Systems</td>
+              <td>
+                Operating system concepts: concurrent processes, basic
+                synchronization techniques, deadlock, memory management, file
+                systems, security, networks, and distributed processing
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 413</td>
+              <td>Software Development</td>
+              <td>
+                Modern software applications. Object-oriented techniques:
+                encapsulation, inheritance, and polymorphism as a mechanism for
+                data design and problem solution. Software design, debugging,
+                testing, and UI design. Software maintenance. Software
+                development tools.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 210</td>
+              <td>Introduction To Computer Programming</td>
+              <td>
+                A comprehensive overview of basic topics in computational
+                discrete geometry including generating functions, complexity
+                theory, convex hull, nearest-neighbor problems, and efficient
+                algorithms.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 256</td>
+              <td>Machine Structures</td>
+              <td>
+                Digital logic circuits, data representation, assembly language
+                programming, subroutine linkage, machine language encoding,
+                interrupt and exception handling, memory system concepts, and
+                CPU organization and performance.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 317</td>
+              <td>Introduction to Web Development</td>
+              <td>
+                Introduction to topics in UNIX and creating web pages including
+                reading and processing user input submitted through web pages,
+                client side and server side programming, connecting a web page
+                to a database, and building an e-commerce site or Internet
+                Application.
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- Other Classes-->
+        <div class="table-data">
+          <!-- Table -->
+          <table>
+            <tr>
+              <th><h3>Other Classes</h3></th>
+              <th><h3>Name</h3></th>
+              <th><h3>Description</h3></th>
+            </tr>
+            <tr>
+              <td>MATH 324</td>
+              <td>Probability and Stats With Computing</td>
+              <td>
+                Data analysis, probability distributions, confidence intervals,
+                and hypothesis testing with language R.
+              </td>
+            </tr>
+            <tr>
+              <td>MATH 325</td>
+              <td>Linear Algebra</td>
+              <td>
+                Vector spaces, linear transformations, elements of matrix
+                algebra including determinants and eigenvalues.
+              </td>
+            </tr>
+            <tr>
+              <td>PHIL 621</td>
+              <td>Minds,Brains,Computers</td>
+              <td>
+                Contemporary theories of the mind as a brain process and as a
+                computational process. Foundations and approaches in the
+                cognitive neurosciences.
+              </td>
+            </tr>
+            <tr>
+              <td>CSC 300</td>
+              <td>Ethics,Brains,Computers</td>
+              <td>
+                Privacy, security, legal, and ethical issues in Software
+                development. Communication relevant to SW development (e.g.,
+                reports, contracts, requirements, documentation, collaboration,
+                e-mail, presentations).
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- Externel JS Files -->
+    <script>
+        //HTML Elements
+const fadeElements = document.querySelectorAll(".fade");
+var slideDone = false;
+
+//Web API: Intersection-Observer
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      //Section is On Page
+      if (entry.isIntersecting) {
+        entry.target.classList.replace("fade-out", "fade-in");
+      }
+      //Section is Off Page
+      else {
+        entry.target.classList.replace("fade-in", "fade-out");
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.7,
+  }
+);
+//Observer Intiate
+fadeElements.forEach((e) => observer.observe(e));
+//Elem
+const boxOne = document.getElementById("box-three-scroll-arrow");
+const boxTwo = document.getElementById("box-one-scroll-arrow");
+const scrollElem = document.getElementById("scroll-bar");
+const topLock = document.getElementById("top-lock");
+const introSection = document.getElementById("intro-section");
+//global-Var
+var oneHeight = 500;
+var lastScrollTop = 0;
+//func scrollBar
+const scrollBar = () => {
+  var scrollLength =
+    (document.documentElement.scrollTop /
+      (document.documentElement.scrollHeight -
+        document.documentElement.clientHeight)) *
+    100;
+  scrollElem.style.width = scrollLength + "%";
+  // introSection.style.opacity = scrollLength + "%";
+  var st = document.documentElement.scrollTop;
+  if (st > lastScrollTop) {
+    // downscroll code
+    oneHeight = oneHeight - 1.3;
+    boxOne.style.top = oneHeight + "px";
+    boxTwo.style.top = oneHeight + "px";
+    topLock.style.margin = "8%";
+  } else {
+    // upscroll code
+    oneHeight = oneHeight + 1.2;
+    boxOne.style.top = oneHeight + "px";
+    boxTwo.style.top = oneHeight + "px";
+    topLock.style.margin = "0%";
+  }
+  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+};
+
+window.onscroll = function () {
+  scrollBar();
+};
+
+var dateOBJ = new Date();
+
+const weekDay = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+//Time
+document.getElementById("time").innerHTML =
+  dateOBJ.getHours() + ":" + dateOBJ.getMinutes();
+
+//Day-Of-Week + , + Month + Number
+document.getElementById("example").innerHTML =
+  weekDay[dateOBJ.getDay()] +
+  " , " +
+  monthNames[dateOBJ.getMonth()] +
+  " " +
+  dateOBJ.getDate();
+  //Text Path ID
+const textPath = document.querySelector("#text-path");
+//const secondPath = document.querySelector("#text-path-two");
+//Text Path Positioning
+const updateTextPath = (offset) => {
+  textPath.setAttribute("startOffset", offset);
+  //secondPath.setAttribute("startOffset", offset);
+};
+const rightCurve = (offset) => {
+  curvePath.setAttribute("startOffset", offset);
+};
+//Scroll Effect
+const onScroll = () => {
+  requestAnimationFrame(() => {
+    updateTextPath(window.scrollY * 0.2);
+  });
+};
+//Event Listener
+window.addEventListener("scroll", onScroll);
+const sections = document.querySelectorAll(".goose"); //Node-List
+const options = {
+  root: null, //viewport
+  threshold: 0.5, //default
+  rootMargin: "-150px",
+};
+const observerer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach((entry) => {
+    //Not-Intersection
+    if (!entry.isIntersecting) {
+      entry.target.classList.toggle("hide");
+    }
+    //Intersection
+    if (entry.isIntersecting) {
+      entry.target.classList.toggle("unhide");
+      entry.target.classList.toggle("slide-content-target");
+      observer.unobserve(entry.target);
+    }
+  });
+}, options);
+
+//observer.observe(sections);
+sections.forEach((section) => {
+  observerer.observe(section);
+});
+
+
+
+
+        </script>
+
+ 
+
+
+  </body>
+</html>
