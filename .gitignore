@@ -1,0 +1,7 @@
+# compiling and running code snippets
+notes.md
+
+# sass
+node_modules/
+package-lock.json
+package.json
